@@ -1,10 +1,3 @@
-
-from cv2 import fastAtan2
-
-
-file_name = 'image_0000605'
-
-f = open(f"sample/annotations/{file_name}.xml").read()
 def size(f):
 	w1 = f.find('width')+6
 	w2 = f.find('width',w1)-2
@@ -132,7 +125,9 @@ def find_contors_class(f):
 				data.append((x_min,y_min,x_max,y_max,classes))
 	return data
 
-print(find_contors_class(f))
+def image_information(file_name):
+	f = open(f"sample/annotations/{file_name}.xml").read()
+	return size(f),find_contors_class(f)
 
 
 
