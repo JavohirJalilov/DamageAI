@@ -1,4 +1,7 @@
 def size(f):
+	"""
+	Returns: Width and Height (tuple)
+	"""
 	w1 = f.find('width')+6
 	w2 = f.find('width',w1)-2
 	W = int(f[w1:w2])
@@ -10,6 +13,10 @@ def size(f):
 	return  W,H
 
 def find_contors_class(f):
+	"""
+	Parameters(str): string file(f)
+	returns(list): x_min,y_min,x_max,y_max,classes(tuple)
+	"""
 	data = []
 	i = 0
 	while True:
@@ -126,6 +133,10 @@ def find_contors_class(f):
 	return data
 
 def image_information(file_name):
+	"""
+	Parameter(str): filename
+	Returns(tuple):size, contours and classes
+	"""
 	f = open(f"sample/annotations/{file_name}.xml").read()
 	return size(f),find_contors_class(f)
 
